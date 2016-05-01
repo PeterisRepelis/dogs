@@ -1,0 +1,15 @@
+<table align="center" border="0" cellpadding="12" cellspacing="3" width="100%" style="table-layout: fixed">
+    <td>
+        <table border="0" cellpadding="0" cellspacing="0" width="500" height="200" id="templateContainer"  bgcolor="#F4F0E4" style="padding:10px">
+          <tr height="20" style="border-bottom: 1px solid #CCC;">
+            <span style="font-weight:bold;font-size:15px"><%= "Ir izveidots jauns pieteikums" %></span>
+          </tr>
+              <tr height="20" style="border-bottom: 1px solid #CCC;"><td><span style="font-weight:bold"> <%= "Vārds, Uzvārds: " %> </span><%= " #{@object.name.to_s}" %></td></tr>
+              <tr height="20" style="border-bottom: 1px solid #CCC;"><td><span style="font-weight:bold"> <%= "E-pasta adrese: " %> </span><%= " #{@object.email}" %></td></tr>
+              <tr height="20" style="border-bottom: 1px solid #CCC;"><td><span style="font-weight:bold"> <%= "Tālrunis: " %> </span><%= " #{@object.phone}" %></td></tr>
+              <tr height="20" style="border-bottom: 1px solid #CCC;"><td><span style="font-weight:bold"> <%= "Adrese: " %> </span><%= " #{@object.address}" %></td></tr>
+              <tr height="20" style="border-bottom: 1px solid #CCC;"><td><span style="font-weight:bold"> <%= "Vēlas kļūt par biedru: " %> </span><%= " #{@object.is_member ? 'Jā' : 'Nē'}" %></td></tr>
+              <tr height="20" style="border-bottom: 1px solid #CCC;"><td><span style="font-weight:bold"> <%= "Komentārs: " %> </span><%= " #{@object.comment}" %></td></tr>
+        </table>
+    <td>
+</table>

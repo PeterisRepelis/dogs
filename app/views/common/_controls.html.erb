@@ -1,0 +1,11 @@
+
+<% path_up = "move_up_admin_#{subject.class.name.underscore.downcase}_path(#{subject.id})" %>
+
+<% path_down = "move_down_admin_#{subject.class.name.underscore.downcase}_path(#{subject.id})" %>
+
+
+<div class="controls">
+  <%= link_to("&uarr;".html_safe, eval(path_up), :class => subject.show_up_arrow? ? "disabled_link" : "") unless subject.show_up_arrow? %>
+  <%= link_to("&darr;".html_safe,  eval(path_down), :class => subject.show_down_arrow? ? "disabled_link" : "" ) unless subject.show_down_arrow? %>
+
+</div>

@@ -1,0 +1,75 @@
+                   <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+                    <!-- Logo
+                    ============================================= -->
+                    <div id="logo">
+                       <!--  <a href="/" class="retina-logo" data-dark-logo='<#%= asset_path("logo/logo_#{locale.to_s}.png") %>'><img src='<#%= asset_path("logo/logo_#{locale.to_s}.png") %>' alt="Logo"></a> -->
+                        <a href="/" class="standard-logo" data-dark-logo="<%= asset_path("logo/spo_logo.png") %>"><img src='<%= asset_path("logo/spo_logo.png") %>' alt="Logo"></a>
+                        <a href="/" class="retina-logo" data-dark-logo='<%= asset_path("logo/spo_logo.png") %>'><img src='<%= asset_path("logo/spo_logo.png") %>' alt="Logo"></a>
+                    </div><!-- #logo end -->
+
+                    <!-- Primary Navigation
+                    ============================================= -->
+                    <nav id="primary-menu">
+
+                        <ul>
+
+
+                            <% @top_pages.each_with_index do |page,index| %>
+                               <% if page.has_children? %>
+                                    <li class=" <%= 'selected_top_menu' if @selected_top_page && @selected_top_page.id == page.id %>"><a href="<%= page_path(page.slug) %>"><div><%= page.title %></div></a>
+                                        <ul>
+                                            <% page.children.where(:visible => true).order("position asc").each do |child| %>
+                                                <li class="<%= 'selected'  if @current_page && @current_page.id == child.id  %>" ><a href="<%= page_path(child.slug) %>"><div><%= child.title %></div></a></li>
+                                            <% end %>    
+                                        </ul>
+                                    </li>
+                                <% else %>
+                                    <li>
+                                       <li class="<%= 'current' if page.slug == params[:id] %>">
+                                            <a href="<%= page_path(page.slug) %>"><div><%= page.title %></div></a>
+                                        </li>
+                                    </li>
+                                <% end %>
+                            <% end %>   
+                           <% if false %> 
+                               <% if current_user %>
+                                            <li class="social_login">
+                                                <a id="draugiem" href="<%= my_products_pages_path %>" title="<%= "#{current_user.name} (#{current_user.products.count})" %>" style="padding-right:0">
+                                                     <!-- <div> -->
+                                                        <i class="i-rounded icon-user"></i>
+                                                
+                                                    <!-- </div> -->
+                                                </a>
+                                            </li>
+                                         </li>
+                                         <li class="social_login">
+                                                <a id="draugiem" href="<%= signout_path %>"><div><%= "Iziet" %></div></a>
+                                            </li>
+                                         </li>
+                                    <% else %>
+                                         <li>
+                                          <!--  <li class="social_login">
+                                                <a id="draugiem" href="<#%= signin_path(:provider => 'draugiem') %>"><div><4%= "draugiem.lv" %></div></a>
+                                            </li> -->
+                                         </li>
+                                         <li>
+                                           <li class="social_login">
+                                                <a id="facebook" href="<%= signin_path(:provider => 'facebook') %>"><div><%= "facebook" %></div></a>
+                                            </li>
+                                         </li>
+                                         <li>
+    <!--                                        <li class="social_login">
+                                                <a id="twitter" href="<$%= signin_path(:provider => 'twitter') %>"><div><$%= "twitter" %></div></a>
+                                            </li> -->
+                                         </li>
+                                    <% end %> 
+                            <% end %>         
+                                    
+                        </ul>
+
+                        
+
+
+                    </nav><!-- #primary-menu end -->
+

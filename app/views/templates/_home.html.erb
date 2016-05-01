@@ -1,0 +1,16 @@
+<%= render partial: 'common/header'  %>
+
+<main id="main">
+
+  <div class="container">
+      <% if @current_page.show_title %>
+        <h1 class="entry-title"><%= @current_page.title %></h1>
+        <div class="clearfix"></div>
+      <% end %>  
+      
+      <%= @current_page.content.html_safe %>
+  </div>  <!-- /container -->
+
+</main>
+
+<%= render partial: 'common/footer'  %>

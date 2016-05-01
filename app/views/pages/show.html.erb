@@ -1,0 +1,11 @@
+<% if @current_page %>
+  <% case @current_page.html_page %>
+    <% when 1 %>
+      <%= render :partial => "templates/home" %> 
+    <% when 2 %>
+      <%= render :partial => "templates/empty_page" %>   
+     <% when 3 %>
+      <%= render :partial => "templates/application" %>    
+      
+  <% end %>
+<% end %> 
