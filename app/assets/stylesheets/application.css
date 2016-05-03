@@ -10,6 +10,13 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require template/fonts.css
+ *= require template/animate.css
+ *= require template/animsition.min.css
+ *= require template/bootstrap.min.css
+ *= require template/flexslider.css
+ *= require template/ionicons.min.css
+ *= require template/style.css
+
  *= require_self
  */

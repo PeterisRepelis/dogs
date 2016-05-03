@@ -10,7 +10,17 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
-//= require_tree .
+
+//= require template/jquery-2.1.4.min.js
+//= require template/isotope.pkgd.min.js
+//= require template/jquery.animsition.min.js
+//= require template/jquery.flexslider.js
+//= require template/jquery.social-buttons.min.js
+//= require template/main.js
+//= require template/smoothScroll.js
+//= require template/wow.min.js
+
+// require jquery
+// require jquery_ujs
+// require turbolinks
+// require_tree .

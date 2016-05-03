@@ -52,5 +52,7 @@ gem 'font-awesome-rails', '~> 4.4.0.0'
 gem 'therubyracer'
 
 gem 'activeadmin', github: 'activeadmin'
+gem 'ancestry'
+gem 'active_admin-sortable_tree'
 gem 'lightbox2-rails'
 

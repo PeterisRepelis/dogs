@@ -1,109 +1,31 @@
-<% if false %>
-<footer id="footer">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 widget">
-        <h3 class="widget-title">Kontakti</h3>
-        <div class="widget-body">
-          <p><%=  Setting.uncached_value_for('mobile_phone_number')  %><br>
-            <a href="mailto:#"><%=  Setting.uncached_value_for('email')  %></a><br>
-            <br>
-           <%=  Setting.uncached_value_for('reg_office')  %>
-          </p>  
+<footer class="main-footer wow fadeInUp">
+    <div class="container">
+      <div class="col-md-8 col-sm-12">
+        <div class="row">
+          <nav class="footer-nav">
+            <ul>
+              <% @top_pages.each_with_index do |page,index| %>
+                <li><a href="<%= lapa_path(page.slug) %>" class="animsition-link link"><%= page.title  %></a></li>
+              <% end %>
+            </ul>
+          </nav>
         </div>
       </div>
 
-      <div class="col-md-4 widget">
-        <h3 class="widget-title">Seko mums</h3>
-        <div class="widget-body">
-          <p class="follow-me-icons">
-            <a href="https://twitter.com/Trejdevini" target='_blank'><i class="fa fa-twitter fa-2"></i></a>
-            <a href="https://www.instagram.com/saulesrits" target='_blank'><i class="fa fa-instagram fa-2"></i></a>
-            <a href="https://www.facebook.com/saulesrits" target='_blank'><i class="fa fa-facebook fa-2"></i></a>
-          </p>
+      <div class="col-md-4 col-sm-12" style="text-align:right">
+        <div class="row">
+          <div class="uppercase gray-text">
+           <%=  Setting.uncached_value_for('copyright')  %>
+          </div>
+          <ul class="social-icons" style="margin-top:30px;float:right">
+            <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-youtube"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>
+            <li><a href="#"><i class="icon ion-social-instagram"></i></a></li>
+          </ul>
         </div>
       </div>
-
-      <div class="col-md-4 widget">
-        <h3 class="widget-title"><%=  Setting.uncached_value_for('company_name')  %></h3>
-        <div class="widget-body">
-          <p>TREJDEVIŅI ir lieliska iespēja ģimenei pavadīt laiku kopā, piepildot to ar vērtīgu zināšanu iegūšanu un noderīgu prasmju apgūšanu latviskā vidē, kurā gan lielam, gan mazam ir iespēja līdzdarboties un izvēlēties savām interesēm piemērotu notikšanu.</p>
-          <p>TREJDEVIŅI piedāvā izdevīgus finansiālus noteikumus dzimtu un ģimeņu locekļiem kopīgai dalībai saietā.</p>
-          <p>Piesakiet dalību saietā sadaļā <a href="/lapa/piesakies">PIESAKIES</a>, un saņemiet tieši jums izveidotu dalības piedāvājumu.</p>
-        </div>
-      </div>
-
-    </div> <!-- /row of widgets -->
-  </div>
-</footer>
-
-<footer id="underfooter">
-  <div class="container">
-    <div class="row">
-      
-      <div class="col-md-12 widget">
-        <div class="widget-body">
-          <p><%=  Setting.uncached_value_for('copyright')  %></p>
-        </div>
-      </div>
-
-
-    </div> <!-- /row of widgets -->
-  </div>
-</footer>
-
-<% end %>
-
-<footer class="footer-distributed">
-
-      <div class="footer-left">
-
-        <h3><img src="<%= image_path 'logo_menu.png' %>"></h3>
-
-        <p class="footer-links">
-          <% @top_pages.each_with_index do |page,index| %>
-              <a href="<%= lapa_path(page.slug) %>"><%= page.title  %></a>
-              <%= "|" unless @top_pages.last == page %>
-          <% end %>  
-        </p>
-
-        <p class="footer-company-name"><%=  Setting.uncached_value_for('copyright')  %></p>
-      </div>
-
-      <div class="footer-center">
-
-        <div>
-          <i class="fa fa-map-marker"></i>
-          <p><%=  Setting.uncached_value_for('reg_office')  %></p>
-        </div>
-
-        <div>
-          <i class="fa fa-phone"></i>
-          <p><%=  Setting.uncached_value_for('mobile_phone_number')  %></p>
-        </div>
-
-        <div>
-          <i class="fa fa-envelope"></i>
-          <p><a href="mailto:<%=  Setting.uncached_value_for('email')  %>"><%=  Setting.uncached_value_for('email')  %></a></p>
-        </div>
-
-      </div>
-
-      <div class="footer-right">
-
-        <p class="footer-company-about">
-          <span><%=  Setting.uncached_value_for('company_name')  %></span>
-
-        </p>
-
-        <div class="footer-icons">
-
-          <a target="_blank" href="https://www.facebook.com/saulesrits/"><i class="fa fa-facebook"></i></a>
-          <a target="_blank" href="https://twitter.com/saulesrits"><i class="fa fa-twitter"></i></a>
-
-
-        </div>
-
-      </div>
-
-    </footer>
+    </div>
+  </footer>

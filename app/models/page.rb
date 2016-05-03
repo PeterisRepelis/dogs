@@ -14,14 +14,8 @@ class Page < ActiveRecord::Base
   RESOURCE_TYPES = {"Standart page" => "",
     "Album page" => "Album"
   }
-  
-  has_many :page_albums, :dependent => :destroy
-
-  accepts_nested_attributes_for :page_albums#, :allow_destroy => true
 
   has_ancestry :orphan_strategy => :rootify
-  
-  has_many :albums, through: :page_albums
   
   validates :slug, :presence => true
   validates_format_of :slug, with: /\A[0-9a-z\-\_]+\z/i

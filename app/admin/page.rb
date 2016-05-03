@@ -12,8 +12,7 @@ ActiveAdmin.register Page do
                   :html_page, :popup, :show_at_menu, :ancestry, :page_height, :background_type,
                   :bacground_color, :image, :products_attributes, :content, :slug, :show_title,
                   :title, :visible, :position, :page_link, :parent_id, :root_page,
-                  :blank_page, :friendly_id, :slug, :image, :title, :content,:friendly_id, :slug,
-                  page_albums_attributes: [:id, :album_id, :page_id, :_destroy]  
+                  :blank_page, :friendly_id, :slug, :image, :title, :content,:friendly_id, :slug
   
     index  :title => proc{"Sadaļas"}, :as => :sortable do
         label do |c| 
@@ -49,7 +48,7 @@ ActiveAdmin.register Page do
   form do |f|
     f.inputs "Lapa" do
       f.input :visible, :label => "Redzama", :hint => ""
-      f.input :show_title, :label => "Rādīt sadaļas nosaukumu", :hint => ""
+      # f.input :show_title, :label => "Rādīt sadaļas nosaukumu", :hint => ""
       f.input :use_html_page, :as => :hidden, :value => :true
       f.input :html_page, :label => "Sadaļas template", :as => :select, :include_blank => false, :collection => Page::HTML_PAGES
       f.input :image, :wrapper_html => {:class => ""}, :label => "Galvenā bilde", :hint => f.object.image.url.present? ? f.template.image_tag(f.object.image.url(:thumb)) : f.template.content_tag(:span, "Vēl nav pievienota bilde") 
@@ -62,18 +61,14 @@ ActiveAdmin.register Page do
           end  
        end
 
-      f.input :resource_type, :label => "Sadaļas resource type", :as => :select, :include_blank => false, :collection => Page::RESOURCE_TYPES, :input_html => {:class => "resource_type_select"}
-      f.input :resource_id, :label => "Sadaļas resource", :as => :select, :collection => option_list, :selected => f.object.resource_id, :input_html => {:class => "resource_type_options"}
+      # f.input :resource_type, :label => "Sadaļas resource type", :as => :select, :include_blank => false, :collection => Page::RESOURCE_TYPES, :input_html => {:class => "resource_type_select"}
+      # f.input :resource_id, :label => "Sadaļas resource", :as => :select, :collection => option_list, :selected => f.object.resource_id, :input_html => {:class => "resource_type_options"}
       f.input :position, :label => "Postition", :hint => ""
       f.input :page_link, :label => "Links"
       f.input :title, :label => "Title", :input_html => {:class => "slug_input"}
       f.input :slug, :label => "FRIENDLY ID*", :wrapper_html => {:class => "necessarily"}, :input_html => {:class => "slug_output"}
       f.input :content, :label => false, :as => :ckeditor, :input_html => {:class => "ckeditor"}
     end
-
-      f.has_many :page_albums do |ai|
-        ai.input :album_id, :label => "Albūms", :as => :select, :collection => Album.all.map{|a| [a.title, a.id]}
-      end 
 
     f.actions do  
       f.action :submit, :as => :input , :label => "Save"

@@ -1,43 +1,34 @@
-<header id="header">
-  <nav class="navbar navbar-default navbar-sticky">
-    <div class="container-fluid container">
-      
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsable-menu">  <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">
+        <a href="/"><img src="<%= image_path 'img/logo.png' %>" alt="logo"></a>
       </div>
-      
-      <div class="navbar-collapse collapse" id="collapsable-menu">
-        <a href="/">
-          <div id="logo">
-              <img src="<%= image_path 'logo_menu.png' %>">
-          </div>
-        </a>  
-        <ul class="nav navbar-nav">
 
-          <% @top_pages.each_with_index do |page,index| %>
+      <div class="menu">
+        <!-- desktop navbar -->
+        <nav class="desktop-nav">
+          <ul class="first-level">
+            <% @top_pages.each_with_index do |page,index| %>
              <% if page.has_children? %>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= page.title  %><b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                      <% page.children.where(:visible => true).order("position asc").each do |child| %>
-                          <li class=" <%= 'current'  if @current_page && @current_page.id == child.id  %>" ><a href="<%= lapa_path(child.slug) %>"><%= child.title %></a></li>
-                      <% end %>    
-                  </ul>
-                </li>
-              <% else %>
-                  <li class="<%= 'current' if page.slug == params[:id] %>">
-                    <a href="<%= lapa_path(page.slug) %>"><%= page.title  %></a>
-                  </li>
-              <% end %>
-          <% end %>  
-          
-        </ul>  
-      </div>  
-
-
-
-  </nav>
-</header>
-
-
+               <ul class="second-level">
+                 <% page.children.where(:visible => true).order("position asc").each do |child| %> 
+                    <li><a href="<%= lapa_path(child.slug) %>" class="animsition-link"><%= child.title %></a></li>
+                 <% end %>   
+              </ul>
+             <% else %>
+                <li><a href="<%= lapa_path(page.slug) %>" class="animsition-link"><%= page.title  %></a></li>
+             <% end %>
+            <% end %> 
+          </ul>
+        </nav>
+        <!-- mobile navbar -->
+        <nav class="mobile-nav"></nav>
+        <div class="menu-icon">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </header>
 
