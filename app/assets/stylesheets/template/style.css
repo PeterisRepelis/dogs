@@ -497,7 +497,7 @@ footer.main-footer nav.footer-nav ul li a{
 .site-hero{
 	height: 850px;
 	width: 100%;
-	background: #fff url("../home/home_top1.jpg") no-repeat;
+	background: #fff url("home/home_top1.jpg") no-repeat;
 	background-size: cover;
 	position: relative;
 	overflow: hidden;
@@ -540,7 +540,7 @@ footer.main-footer nav.footer-nav ul li a{
 
 /*site hero 2 */
 .site-hero_2{
-	background: url("../img/site-hero2.jpg") no-repeat;
+	background: url("img/site-hero2.jpg") no-repeat;
 	background-size: cover;
 	height: 500px;
 	width: 100%;
