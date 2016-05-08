@@ -17,6 +17,7 @@
  *= require template/flexslider.css
  *= require template/ionicons.min.css
  *= require template/style.css
+ *= require main
 
  *= require_self
  */

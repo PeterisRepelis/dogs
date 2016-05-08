@@ -1,0 +1,98 @@
+<%= render partial: 'common/header'  %>
+  <!-- HERO SECTION  -->
+  <div class="site-hero_2">
+    <div class="page-title">
+      <div class="big-title montserrat-text uppercase">Tiekamies 22. maijā</div>
+      <div class="small-title montserrat-text uppercase">sākums / dalibnieki</div>
+    </div>
+  </div>
+
+  <!-- WHAT WE DO -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="section-title">
+          <span>Kas mēs esam</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+
+      <div class="row portfolio_container">
+        <% if MemberUpload.any?  %>
+          <% MemberUpload.all.each do |dog| %>
+                <!-- single work -->
+              <div class="col-md-4 album_<%= dog.id %>">
+                <a href="single-project.html" class="portfolio_item work-grid wow fadeInUp">
+                  <img src="<%= dog.image.url(:big) %>" alt="image">
+                  <div class="portfolio_item_hover">
+                    <div class="item_info">
+                      <span><%= dog.dog_name rescue '-' %></span>
+                      <em><%= dog.dog_name rescue '-' %></em>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <!-- end single work -->  
+          <% end %>  
+        <% end %>  
+      </div>
+
+      <div class="row">
+        <div class="section-title">
+          <span>Pievieno arī savu draugu</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+
+    </div><!-- end container -->
+  </section>
+
+ <%= render partial: 'common/member_upload_form' %> 
+
+ <%= render partial: 'common/footer'  %>
+
+  <script type="text/javascript">
+  $(window).load(function(){
+    new WOW().init();
+  });
+
+    $(window).load(function() {
+      new WOW().init();
+
+      // initialise flexslider
+      $('.site-hero').flexslider({
+        animation: "fade",
+        directionNav: false,
+        controlNav: false, 
+        keyboardNav: true,
+        slideToStart: 0,
+        animationLoop: true,
+        pauseOnHover: false,
+        slideshowSpeed: 4000, 
+      });
+
+
+      // initialize isotope
+      var $container = $('.portfolio_container');
+      $container.isotope({
+        filter: '*',
+      });
+     
+      $('.portfolio_filter a').click(function(){
+        $('.portfolio_filter .active').removeClass('active');
+        $(this).addClass('active');
+     
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+          filter: selector,
+          animationOptions: {
+            duration: 500,
+            animationEngine : "jquery"
+          }
+        });
+        return false;
+      }); 
+    });
+  </script>

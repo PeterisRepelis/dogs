@@ -8,7 +8,11 @@ class Page < ActiveRecord::Base
   
   HTML_PAGES = {"Sākumlapa" => 1,
     "Tukša lapa" => 2,
-    "Pieteikuma forma" => 3
+    "Par mums" => 3,
+    "Noteikumi" => 4,
+    "Ziedojumi" => 5,
+    "Dalībnieki" => 6,
+    "Kontakti" => 7
   }
 
   RESOURCE_TYPES = {"Standart page" => "",

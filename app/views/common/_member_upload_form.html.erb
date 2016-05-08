@@ -1,0 +1,36 @@
+<section class="green-section wow fadeInUp" style="padding:50px 0">
+  <div class="container">
+    <div class="col-md-6 col-sm-12">
+      <div class="row">
+        <span class="white-text montserrat-text" style="font-size:20px;display:block;">
+         Ja arī Tev ir bīgls, nepalaid garām - tiekamies 22.maijā, ekporta ielas suņu pastaigu laukumā!
+        </span>
+        <a href="https://www.facebook.com/bigliemlv/?fref=ts" class="btn white button-to-fb" target='_blank' style="margin-top:30px"><span>ATZĪMĒJIES FACEBOOK</span></a>
+      </div>
+    </div>
+
+    <div class="col-md-6 col-sm-12">
+        <div class="row">
+          <div class="white-section" style="padding:20px">
+            <span class="montserrat-text uppercase" style="font-size:24px">Iepazīstini ar savu bīglu pārējos saostīšanās dalībniekus</span>
+            <p>
+              Pievieno sava mīluļa foto, pieraksti viņa vārdu un pievienojies pārējiem bīgliņiem sadaļā "dalībnieki"
+            </p>
+            <form action="/member_uploads" method="post" multipart="true" enctype="multipart/form-data" data-multipart="false" novalidate="novalidate">
+              <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+              <div class="input_1" style="margin-bottom:10px">
+                <input type="text" name="member_upload[dog_name]">
+                <span>Bīgla vārds</span>
+              </div>
+              
+                <span style='font-size: 14px;color: #9a9a9a;'>BILDE</span>
+                <input type="file" name="member_upload[image]">
+
+
+              <button type="submit" class="btn green" style="margin-top:20px"><span>pievienot</span></button>
+            </form>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>

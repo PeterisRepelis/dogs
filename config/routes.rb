@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end  
 
     resources :contact_forms, only: [:create] 
+    resources :member_uploads, only: [:create] 
 
     root :to => 'pages#show', :id => Page.where(:visible =>  true).order("position asc").first.slug if (ActiveRecord::Base.connection.table_exists? 'pages' and Page.count > 0)
     
